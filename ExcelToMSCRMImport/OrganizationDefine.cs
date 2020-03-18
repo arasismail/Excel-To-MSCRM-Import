@@ -28,13 +28,14 @@ namespace ExcelToMSCRMImport
 
         private void OrganizationDefine_frm_Load(object sender, EventArgs e)
         {
-
+            ComboboxItem item = new ComboboxItem(); 
             connectionObjectList=connectionXmlHelper.ReadConnection();
             foreach (ConnectionObject dnm in connectionObjectList) 
             {
+                item.Text = dnm.SystemName;
+                item.Value = dnm.ConnectionId;
+                connectionList_cbx.Items.Add(item);
                 
-                //connectionList_cbx.Items.Add(dnm.SystemName);
-                //connectionList_cbx.SelectedIndex = 0;
             }
         }
 
